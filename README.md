@@ -36,7 +36,7 @@ ideas/ notes/      the idea shelf, and single-topic reference
 tasks/ people/     loose to-dos, and people worth remembering context about
 projects/          one folder per project — each its own repo (gitignored here)
 archive/           finished and stale material. Move, never delete
-.claude/skills/    nine commands, below
+.claude/skills/    eight commands, below
 .claude/hooks/     two session hooks that notice unjournalled work
 ```
 
@@ -51,7 +51,6 @@ archive/           finished and stale material. Move, never delete
 | `/move-in` | onboard an existing repo into the workspace |
 | `/organize` | tidy exactly one target — a project, the ideas, the notes |
 | `/process-pile` | empty the pile into its proper homes |
-| `/reflect` | consolidate observations into settled preferences |
 | `/tool-note` | write up a tool you just worked out how to use |
 
 ---

@@ -139,10 +139,22 @@ This workspace is a second brain; it must get smarter with every session.
 - **Before acting**, read `me/preferences.md`, `me/profile.md` and
   `innkeeper/learnings.md`. All three are short by design.
 - **During a session**, when a fact, preference or correction appears — or you
-  observe a pattern — record it. Stated explicitly → `me/profile.md` or
-  `me/preferences.md`, dated. Inferred → `me/learnings.md` as
-  `- YYYY-MM-DD [confidence] observation`. Never interrupt the task to do it;
-  fold it in and mention it at the end.
+  observe a pattern — record it **in the turn it happens**, not at the end where
+  it gets dropped. Stated explicitly → `me/profile.md` or `me/preferences.md`,
+  dated. Inferred → `me/learnings.md` as `- YYYY-MM-DD [confidence] observation`.
+  Never interrupt the task to do it; fold it in and mention it at the end.
+- **Promote on the SECOND sighting — there is no consolidation pass.** Before
+  appending to `me/learnings.md`, read what is already staged. If the new
+  observation **confirms one already there**, that is the second sighting:
+  promote it to `me/preferences.md` or `me/profile.md` with both dates and the
+  evidence, and **delete the staged line** — in that turn. If it **contradicts**
+  something already in `preferences.md`, say so and update it rather than
+  staging a quiet disagreement.
+  `me/learnings.md` therefore holds things seen **once**, waiting for a second
+  sighting. It is not a queue. The workspace this template came from ran a
+  weekly consolidation skill instead; nothing ever ran it, the file reached
+  forty entries, and it was retired. Anything that waits for a periodic pass
+  waits forever, because nothing runs the pass.
 - **Corrections are gold.** If you are corrected on *how* you did something,
   capture it in `me/preferences.md` with the why.
 - **Skills live here too**, in `.claude/skills/<name>/SKILL.md`. When the same
