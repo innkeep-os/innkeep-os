@@ -16,7 +16,7 @@ try {
   let input = {};
   try { input = JSON.parse(fs.readFileSync(0, 'utf8')); } catch { /* keep defaults */ }
 
-  const { findUnjournaled, norm, STUB_MARK } = require('./lib-worklog.js');
+  const { findUnjournaled, findUnlearned, norm, STUB_MARK } = require('./lib-worklog.js');
 
   // No path guard. This hook runs only where a workspace wires it in its own
   // .claude/settings.json, which is exactly when it should — the original
@@ -25,7 +25,10 @@ try {
   if (!cwd) process.exit(0);
 
   const { day, files, stubDay } = findUnjournaled();
-  if (files.length === 0 && !stubDay) process.exit(0);
+  const learn = findUnlearned();
+
+  // Either gap is worth one line. Neither is worth a second one.
+  if (files.length === 0 && !stubDay && !learn.behind && !learn.overStaged) process.exit(0);
 
   const parts = [];
 
@@ -45,12 +48,31 @@ try {
     );
   }
 
+  if (learn.behind) {
+    parts.push(
+      `me/ has not been written in ${learn.days} days, across ${learn.commits} commits. ` +
+      `CLAUDE.md says a session records what it learns about the person AS IT GOES — a stated ` +
+      `preference to me/preferences.md, an observation to me/learnings.md — and that has ` +
+      `not been happening. Measured 2026-09-20: the keeper's own learnings grew five times ` +
+      `in ten days while the person-facing ones did not move at all, so this is the half that gets skipped.`
+    );
+  }
+
+  if (learn.overStaged) {
+    parts.push(
+      `me/learnings.md holds ${learn.staged} dated observations waiting to be promoted or ` +
+      `dropped. That is what /reflect is for, and nothing runs it on a schedule.`
+    );
+  }
+
   const context =
-    `Unjournalled work from a previous session:\n\n${parts.join('\n\n')}\n\n` +
-    `If the user's request this session relates to that work, fold it into real prose in the ` +
-    `journal (what was done, what's open) and delete any stub block. If it's unrelated, mention ` +
-    `it ONCE as a casual one-line heads-up and then drop it — do not derail the user's actual ` +
-    `request, do not re-raise it later, and do not treat it as a task list.`;
+    `Loose ends from previous sessions:\n\n${parts.join('\n\n')}\n\n` +
+    `Unjournalled work: if this session's request relates to it, fold it into real prose in the ` +
+    `journal and delete any stub block. A learning gap is different — it is not a task to do now, ` +
+    `it is a warning about how THIS session will behave: record what you learn as you go, in the ` +
+    `turn you learn it, rather than leaving it for the end where it gets dropped. ` +
+    `Either way, mention it to the user ONCE as a casual one-line heads-up and then drop it — ` +
+    `do not derail their actual request, do not re-raise it later, and do not treat it as a list.`;
 
   process.stdout.write(JSON.stringify({
     hookSpecificOutput: { hookEventName: 'SessionStart', additionalContext: context },

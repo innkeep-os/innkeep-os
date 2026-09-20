@@ -100,4 +100,50 @@ function findUnjournaled({ cap = 40, lookBackDays = 3 } = {}) {
   return { day, files, stubDay };
 }
 
-module.exports = { findUnjournaled, journalPathFor, todayStamp, norm, STUB_MARK, OS_DIR };
+/**
+ * Has the learning loop actually been running?
+ *
+ * CLAUDE.md says a session records what it learns about the person as it goes, no
+ * skill required. Measured 2026-09-20, that instruction was half-obeyed:
+ * innkeeper/learnings.md grew five times in ten days as part of ordinary
+ * working commits, while the me/ files had not moved
+ * in six days of heavy work containing several explicit corrections.
+ *
+ * The asymmetry is worth naming, because it says why more instruction would
+ * not have helped: the keeper's own mistakes are vivid at the moment they
+ * happen, and a preference someone states in passing feels like conversation rather
+ * than data. So this does not remind anyone to be diligent. It does what the
+ * journal check already does — looks at the evidence on disk and reports an
+ * absence, which is the only part a session cannot talk itself out of.
+ *
+ * @returns { behind: boolean, days: number, commits: number, staged: number }
+ */
+function findUnlearned({ quietDays = 4, quietCommits = 4, stagedCap = 25 } = {}) {
+  const git = (...a) => {
+    try {
+      return execFileSync('git', ['-C', OS_DIR, ...a],
+        { encoding: 'utf8', timeout: 6000, stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    } catch { return ''; }
+  };
+
+  const lastISO = git('log', '-1', '--format=%cI', '--', 'me/');
+  if (!lastISO) return { behind: false };                 // no history to judge
+
+  const since = Date.parse(lastISO);
+  const days = Math.floor((Date.now() - since) / 86400000);
+  const commits = git('log', '--oneline', `--since=${lastISO}`).split(/\r?\n/).filter(Boolean).length;
+
+  // How much is staged in me/learnings.md awaiting a /reflect. A long staging
+  // area is the other half of the same loop: observations recorded but never
+  // promoted or dropped.
+  let staged = 0;
+  try {
+    staged = fs.readFileSync(path.join(OS_DIR, 'me', 'learnings.md'), 'utf8')
+      .split(/\r?\n/).filter((l) => /^-\s+\d{4}-\d{2}-\d{2}/.test(l)).length;
+  } catch { /* no file yet */ }
+
+  const behind = (days >= quietDays && commits >= quietCommits);
+  return { behind, days, commits, staged, overStaged: staged >= stagedCap };
+}
+
+module.exports = { findUnjournaled, findUnlearned, journalPathFor, todayStamp, norm, STUB_MARK, OS_DIR };
