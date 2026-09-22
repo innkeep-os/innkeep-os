@@ -29,7 +29,7 @@ CLAUDE.md          how Claude behaves here — the rules and the index in one
 loops.md           the one list: everything open that belongs to no project
 me/                who you are, how you like things done, what has been noticed
 innkeeper/         how Claude should work, and what it has learned about your world
-journal/           dated logs, written for Claude. journal/letters/ holds the letters
+journal/           dated logs, written for Claude — the cross-session memory
 pile/              drop anything here; process it later
 ideas/ notes/      the idea shelf, and single-topic reference
 people/            people worth remembering context about

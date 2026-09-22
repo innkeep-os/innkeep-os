@@ -32,11 +32,6 @@ assume another session's in-conversation context. If it mattered, it is in a fil
   `loops.md`, not at the root.
   (Loops ≠ tasks: tasks are things you chose; loops are things waiting on you
   whether you chose them or not.)
-- **Write the day's letter.** If `journal/letters/<today>.md` does not exist and
-  this session did real work, write it before you finish: what happened, what
-  you noticed, what you would like to do, and what you could not tell. Judgments
-  are welcome — it is the one place they belong — but date them and say what
-  they rest on. Innkeep renders it; nothing else in the app is allowed to guess.
 
 ## Structure
 
@@ -65,7 +60,6 @@ assume another session's in-conversation context. If it mattered, it is in a fil
   Claude, not for you** — dense detail is good here; it is the cross-session
   memory. Corollary: project docs stay current-state only, and superseded
   material moves to the journal rather than piling up in the doc.
-  `journal/letters/` holds the letters.
 - **`people/`** — one file per person worth remembering context about.
 - **`archive/`** — finished projects and stale material. Move, never delete.
 
@@ -203,5 +197,5 @@ productivity guilt, no urgency theatre, no "3 days overdue!".
   home; if a status line starts accumulating past events, move them to the
   journal.
 - **Don't invent activity.** A count, a date and a filename cannot go stale. A
-  noticing can — so it belongs in a dated letter, never pinned into the
-  furniture as though it were a fact.
+  noticing can — so it belongs in a dated journal entry, where it carries the
+  day it was true, never pinned into the furniture as though it were a fact.
