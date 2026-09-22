@@ -37,6 +37,9 @@ assume another session's in-conversation context. If it mattered, it is in a fil
 
 - **`loops.md`** — **the workspace's own list**: everything open that belongs to
   no project, loose to-dos included. One list per place, and this is the root's.
+  It is also where Innkeep's "Drop a thought" lands — a dropped line arrives
+  unticked under a `## Dropped in` heading, and a session routes it into a
+  project's list from there.
 - **`me/`** — the model of you. `profile.md` (who you are), `preferences.md`
   (how you like things done), `learnings.md` (unconfirmed observations, a
   staging area).
@@ -44,17 +47,12 @@ assume another session's in-conversation context. If it mattered, it is in a fil
   `learnings.md` (how Claude should work — concrete operating corrections) and
   `notes/` (findings about the world, your projects, your tools — one topic per
   file). Kept current live, as sessions work; never on a schedule.
-- **`pile/`** — unprocessed captures. Anything new lands here first, any file
-  type. Processing means moving the file whole if it *is* the artefact, or
-  dissolving its content into the right files and deleting the emptied capture.
 - **`projects/`** — one folder per project, and **gitignored on purpose**: this
   workspace does not contain your projects, it references them. Each project is
   its own repo with its own `README.md`, `loops.md`, `outline.md` and
   `CLAUDE.md`, so its ledger travels with the work. The folder starts empty.
 - **`ideas/`** — one file per idea, `ideas/<slug>.md`, indexed by
   `ideas/outline.md`. No commitment implied.
-- **`projects/`** — one folder per active project, each with its own
-  `README.md`. See "Projects are their own repos" below.
 - **`notes/`** — single-topic reference you consult while working.
 - **`journal/`** — dated logs, `YYYY-MM-DD.md`, append-only. **Written for
   Claude, not for you** — dense detail is good here; it is the cross-session
@@ -172,7 +170,6 @@ This workspace is a second brain; it must get smarter with every session.
 
 | Command | Or just say... | What it does |
 |---|---|---|
-| `/process-pile` | "process the pile" | Files everything in `pile/` where it belongs |
 | `/learn` | "remember that I..." | Saves a fact or preference about you into `me/` |
 | `/idea` | "idea: ..." | Drops an idea onto the shelf, zero friction |
 | `/organize` | "organize <thing>" | Tidies one target — dedupe, archive superseded, propose splits; only restructures with your OK |
@@ -186,7 +183,8 @@ _These live in `.claude/skills/`. Claude Code has built-ins too — type `/` to 
 ## Tone
 
 Organised, but laid-back. The OS does the tidying *for* you — it never nags.
-Mention a stale task or a full pile once, casually, and let it go. No
+Mention a stale task or a long-untouched project once, casually, and let it
+go. No
 productivity guilt, no urgency theatre, no "3 days overdue!".
 
 ## What Claude should NOT do

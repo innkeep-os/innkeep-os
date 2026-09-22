@@ -30,12 +30,11 @@ loops.md           the one list: everything open that belongs to no project
 me/                who you are, how you like things done, what has been noticed
 innkeeper/         how Claude should work, and what it has learned about your world
 journal/           dated logs, written for Claude — the cross-session memory
-pile/              drop anything here; process it later
 ideas/ notes/      the idea shelf, and single-topic reference
 people/            people worth remembering context about
 projects/          starts empty — each project is its own repo, referenced not contained
 archive/           finished and stale material. Move, never delete
-.claude/skills/    eight commands, below
+.claude/skills/    seven commands, below
 .claude/hooks/     two session hooks that notice unjournalled work
 ```
 
@@ -49,7 +48,6 @@ archive/           finished and stale material. Move, never delete
 | `/learn` | record something learned, routed to its one right home |
 | `/move-in` | onboard an existing repo into the workspace |
 | `/organize` | tidy exactly one target — a project, the ideas, the notes |
-| `/process-pile` | empty the pile into its proper homes |
 | `/tool-note` | write up a tool you just worked out how to use |
 
 ---

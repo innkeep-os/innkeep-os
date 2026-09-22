@@ -28,4 +28,3 @@ Tidy exactly one target, named in the invocation (`/organize <project>`, `/organ
 - **tasks** — keep Now 1–3 items; sweep checked items to Done; route out anything that isn't actually a task (idea → ideas, reference → notes); group by project.
 - **home** — pointer integrity: every link resolves, every line is one sentence + link (no regrown history dumps), Recently pruned to ~10 lines, Commands table matches `.claude/skills/`.
 - **me/** — content changes here are `/learn` territory; only fix structure/links.
-- **pile/** — not an /organize target: that's `/process-pile`, which files each capture's *contents* where they belong and then deletes the leftover capture file (the one place deletion is allowed — the content lives on where it was filed). /organize moves mis-filed exceptions and deletes nothing.
