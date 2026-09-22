@@ -1,4 +1,8 @@
-/projects/
+# Your projects are their own repos — this workspace references them, it does
+# not contain them. The folder itself is tracked (empty) so there is a visible
+# slot to clone into; everything you put in it stays yours.
+/projects/*
+!/projects/.gitkeep
 node_modules/
 .DS_Store
 Thumbs.db

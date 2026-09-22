@@ -19,7 +19,7 @@ const OS_DIR = process.env.CLAUDE_PROJECT_DIR || process.cwd();
 const STUB_MARK = '⚙ Unjournaled work at session end';
 
 // Files that ARE the ritual — changing them isn't "work that needs journalling".
-const RITUAL = [/^home\.md$/i, /^open-loops\.md$/i, /^journal\//i, /^\.claude\/hooks\//i];
+const RITUAL = [/^loops\.md$/i, /^journal\//i, /^\.claude\/hooks\//i];
 const SKIP_DIR = new Set(['node_modules', '.git', 'dist', 'build', '.next', '.astro', 'archive', '.vite', 'coverage']);
 const WORK_EXT = /\.(md|json|js|jsx|ts|tsx|py|css|scss|html|sql|yml|yaml|php)$/i;
 
@@ -133,7 +133,7 @@ function findUnlearned({ quietDays = 4, quietCommits = 4, stagedCap = 25 } = {})
   const days = Math.floor((Date.now() - since) / 86400000);
   const commits = git('log', '--oneline', `--since=${lastISO}`).split(/\r?\n/).filter(Boolean).length;
 
-  // How much is staged in me/learnings.md awaiting a /reflect. A long staging
+  // How much is staged in me/learnings.md awaiting promotion. A long staging
   // area is the other half of the same loop: observations recorded but never
   // promoted or dropped.
   let staged = 0;

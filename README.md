@@ -25,16 +25,15 @@ automatically, because both are just files in here.
 ## What you get
 
 ```
-CLAUDE.md          how Claude behaves in this workspace — read it, then edit it
-HOME.md            your dashboard
-open-loops.md      the session handoff ledger: what is waiting on you
+CLAUDE.md          how Claude behaves here — the rules and the index in one
+loops.md           the one list: everything open that belongs to no project
 me/                who you are, how you like things done, what has been noticed
 innkeeper/         how Claude should work, and what it has learned about your world
 journal/           dated logs, written for Claude. journal/letters/ holds the letters
 pile/              drop anything here; process it later
 ideas/ notes/      the idea shelf, and single-topic reference
-tasks/ people/     loose to-dos, and people worth remembering context about
-projects/          one folder per project — each its own repo (gitignored here)
+people/            people worth remembering context about
+projects/          starts empty — each project is its own repo, referenced not contained
 archive/           finished and stale material. Move, never delete
 .claude/skills/    eight commands, below
 .claude/hooks/     two session hooks that notice unjournalled work
@@ -58,7 +57,7 @@ archive/           finished and stale material. Move, never delete
 ## The idea, in one paragraph
 
 Sessions are disposable; files are the continuity. You open a session, it reads
-`HOME.md` and `open-loops.md`, does a chunk of work, writes down what it learned
+`CLAUDE.md` and `loops.md`, does a chunk of work, writes down what it learned
 and what it left dangling, and dies. The next one picks up from the files rather
 than from a conversation nobody can remember. Innkeep is the window onto that —
 it never calls a model and never runs anything, so everything it shows you was

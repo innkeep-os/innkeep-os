@@ -5,7 +5,7 @@ description: Retrospective on the current session (or recent journal entries) as
 
 # Improve
 
-The OS improving its own machinery. `/reflect` is about you; `/improve` is about the system.
+The OS improving its own machinery. `/learn` is about you; `/improve` is about the system.
 
 ## Steps
 1. Review the current session (and, if run cold, the last few `journal/` entries) looking for:
@@ -15,7 +15,7 @@ The OS improving its own machinery. `/reflect` is about you; `/improve` is about
    - **Tooling gaps** → things a connector, scheduled task, or automation could remove entirely.
 2. Filter hard: only propose changes that would have made THIS session (or a recent real one) noticeably better. No speculative machinery.
 3. Present as a short menu: each item = what it is, the concrete moment that motivated it, effort to build. you picks.
-4. Build what he approves: skills into `.claude/skills/<name>/SKILL.md` (named in your words), rules into CLAUDE.md, structure changes per the /organize approval flow (propose first, never silently). Add new commands to HOME.md's table.
+4. Build what he approves: skills into `.claude/skills/<name>/SKILL.md` (named in your words), rules into CLAUDE.md, structure changes per the /organize approval flow (propose first, never silently). Add new commands to the Commands table in CLAUDE.md.
 5. Log what was built (or consciously skipped) in today's journal.
 
 ## Auto-trigger

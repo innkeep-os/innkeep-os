@@ -17,5 +17,5 @@ Onboard a repo into the OS with the identity boundary intact. Motivated by the n
    - `git fetch` → auth actually works
    - `git status` → uncommitted work survived
 5. **If it has no repo/remote yet** (old sites): `git init`, create the GitHub repo under the right account (under the right account), first-commit after a secrets/size scan (no `.env`/keys; nothing >100MB; write a proper `.gitignore`).
-6. **Document**: add a History line to `notes/github-setup.md`; update HOME.md if it's a new active project; journal it.
+6. **Document**: add a History line to `notes/github-setup.md`; journal it. Nothing else needs updating — the app finds a new project on its own.
 7. Report: where it landed, identity verified as what, anything left behind.

@@ -61,7 +61,7 @@ try {
   if (learn.overStaged) {
     parts.push(
       `me/learnings.md holds ${learn.staged} dated observations waiting to be promoted or ` +
-      `dropped. That is what /reflect is for, and nothing runs it on a schedule.`
+      `dropped. Promote the ones you have seen twice, in the turn you see them — nothing runs that on a schedule.`
     );
   }
 

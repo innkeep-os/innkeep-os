@@ -14,20 +14,22 @@ assume another session's in-conversation context. If it mattered, it is in a fil
 
 ## Start here
 
-- At the start of every session, read **`HOME.md`** first. It is the dashboard
-  and index for everything else.
-- Also read **`open-loops.md`** — the session handoff ledger. Anything in it is
-  work a previous session left in flight.
-- After doing meaningful work, update `HOME.md` so the next session starts
-  current.
+- At the start of every session, read **this file** first — it is the rules and
+  the index in one. There is no separate dashboard to keep current.
+- Also read **`loops.md`** — the one list for everything open that belongs to no
+  project, including whatever a previous session left in flight.
+- After doing meaningful work, **journal it**. That is the record; nothing else
+  needs updating to leave things current.
 - **The live reconcile rule (hard contract):** any session that did meaningful
   project work reconciles that project's own `loops.md` — and its `outline.md`
   — **before journaling**, live, as part of the work. The
   session that created the drift has the context to fix it in sixty seconds; no
   scheduled pass ever owns this.
-- Before ending a session: update `open-loops.md` — add anything you are leaving
-  unfinished or unverified (one line: date, area, what is dangling → next step),
-  and **delete** lines you closed. Keep it small; empty is the goal state.
+- Before ending a session: reconcile the list of whatever you worked in. Add
+  anything you are leaving unfinished or unverified, and **tick** what you
+  closed rather than deleting it — a settled line stays, because the file is the
+  archive. Anything dangling that belongs to a project goes in **that project's**
+  `loops.md`, not at the root.
   (Loops ≠ tasks: tasks are things you chose; loops are things waiting on you
   whether you chose them or not.)
 - **Write the day's letter.** If `journal/letters/<today>.md` does not exist and
@@ -38,7 +40,8 @@ assume another session's in-conversation context. If it mattered, it is in a fil
 
 ## Structure
 
-- **`HOME.md`** — the overview: quick links, active projects, recent activity.
+- **`loops.md`** — **the workspace's own list**: everything open that belongs to
+  no project, loose to-dos included. One list per place, and this is the root's.
 - **`me/`** — the model of you. `profile.md` (who you are), `preferences.md`
   (how you like things done), `learnings.md` (unconfirmed observations, a
   staging area).
@@ -49,9 +52,10 @@ assume another session's in-conversation context. If it mattered, it is in a fil
 - **`pile/`** — unprocessed captures. Anything new lands here first, any file
   type. Processing means moving the file whole if it *is* the artefact, or
   dissolving its content into the right files and deleting the emptied capture.
-- **`tasks/`** — loose to-dos belonging to no project, in its own `loops.md`
-  (one list per place, like anywhere else). Per-project agendas live in each
-  project's own `loops.md`, never restated here.
+- **`projects/`** — one folder per project, and **gitignored on purpose**: this
+  workspace does not contain your projects, it references them. Each project is
+  its own repo with its own `README.md`, `loops.md`, `outline.md` and
+  `CLAUDE.md`, so its ledger travels with the work. The folder starts empty.
 - **`ideas/`** — one file per idea, `ideas/<slug>.md`, indexed by
   `ideas/outline.md`. No commitment implied.
 - **`projects/`** — one folder per active project, each with its own
@@ -73,8 +77,7 @@ references them.** Each project keeps its own `README.md`, `loops.md`
 and `outline.md`, so its ledger travels with the work.
 
 A session opened on a project repo should attach this one and read it first —
-`CLAUDE.md`, `HOME.md`, `open-loops.md`, `me/learnings.md`,
-`innkeeper/learnings.md`. Put those instructions in each project's own
+`CLAUDE.md`, `loops.md`, `me/learnings.md`, `innkeeper/learnings.md`. Put those instructions in each project's own
 `CLAUDE.md`; a session that skips them starts blind and re-solves what was
 already paid for.
 
@@ -135,7 +138,7 @@ the choice back is just an unanswered question sitting in a file.
   grepping the whole workspace and updating every live reference. Journals stay
   as written; they are history.
 - **Parallel sessions exist.** Before creating or editing machinery (skills,
-  `CLAUDE.md`, `HOME.md` structure), re-read the current state fresh — another
+  `CLAUDE.md`, the folder shape), re-read the current state fresh — another
   session may have changed it since this one started.
 
 ## The learning loop (always on)
@@ -169,6 +172,22 @@ This workspace is a second brain; it must get smarter with every session.
   append a dated one-line lesson at the end **only** when that run taught
   something non-obvious. Never vague self-praise; never a rule already in the
   skill. Create the file lazily, on the first real lesson.
+
+## Commands
+<!-- Type "/" in any session to see these with autocomplete. Plain English works too. -->
+
+| Command | Or just say... | What it does |
+|---|---|---|
+| `/process-pile` | "process the pile" | Files everything in `pile/` where it belongs |
+| `/learn` | "remember that I..." | Saves a fact or preference about you into `me/` |
+| `/idea` | "idea: ..." | Drops an idea onto the shelf, zero friction |
+| `/organize` | "organize <thing>" | Tidies one target — dedupe, archive superseded, propose splits; only restructures with your OK |
+| `/clean-up` | "clean up the OS" | The workspace-wide hygiene sweep; never generative, everything lands gated |
+| `/move-in` | "move in this repo" | Brings a repo into the workspace: right folder, right git identity, verified |
+| `/improve` | "anything worth making a skill?" | Retrospective on the workspace itself — proposes skills, rules, structure fixes |
+| `/tool-note` | "tool note: ..." | Files a tool-capability fact into `notes/tool-capabilities.md` |
+
+_These live in `.claude/skills/`. Claude Code has built-ins too — type `/` to see everything._
 
 ## Tone
 
