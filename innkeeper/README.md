@@ -1,7 +1,7 @@
 # innkeeper/ — the model of the keeper
 
 The mirror of [me/](../me/). That one is about you; this one is about how Claude
-should work.
+should work — and Innkeep shows it as its own place, beside Me.
 
 - **learnings.md** — operating corrections. Concrete, grounded in something that
   actually happened, and written so they would change the next session.
