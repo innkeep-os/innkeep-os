@@ -1,8 +1,8 @@
 # tasks/
 
-Loose to-dos that belong to no project. Per-project agendas live in each
-project's own `tasks.md` and are never restated here.
+Loose to-dos that belong to no project. The list is [loops.md](loops.md) — one
+per place, like anywhere else in this workspace.
 
-See also the loops/tasks boundary in [CLAUDE.md](../CLAUDE.md): a task is
-something you chose; a loop is something waiting on you whether you chose it or
-not.
+See **one list per place** in [CLAUDE.md](../CLAUDE.md): a place keeps a single
+ledger holding everything open there, calls waiting on you and work waiting on
+anyone, in one pass.

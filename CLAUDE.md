@@ -21,8 +21,8 @@ assume another session's in-conversation context. If it mattered, it is in a fil
 - After doing meaningful work, update `HOME.md` so the next session starts
   current.
 - **The live reconcile rule (hard contract):** any session that did meaningful
-  project work reconciles that project's own `tasks.md` — and its `outline.md`,
-  where one exists — **before journaling**, live, as part of the work. The
+  project work reconciles that project's own `loops.md` — and its `outline.md`
+  — **before journaling**, live, as part of the work. The
   session that created the drift has the context to fix it in sixty seconds; no
   scheduled pass ever owns this.
 - Before ending a session: update `open-loops.md` — add anything you are leaving
@@ -49,8 +49,9 @@ assume another session's in-conversation context. If it mattered, it is in a fil
 - **`pile/`** — unprocessed captures. Anything new lands here first, any file
   type. Processing means moving the file whole if it *is* the artefact, or
   dissolving its content into the right files and deleting the emptied capture.
-- **`tasks/`** — loose to-dos belonging to no project. Per-project agendas live
-  in each project's own `tasks.md`, never restated here.
+- **`tasks/`** — loose to-dos belonging to no project, in its own `loops.md`
+  (one list per place, like anywhere else). Per-project agendas live in each
+  project's own `loops.md`, never restated here.
 - **`ideas/`** — one file per idea, `ideas/<slug>.md`, indexed by
   `ideas/outline.md`. No commitment implied.
 - **`projects/`** — one folder per active project, each with its own
@@ -68,8 +69,8 @@ assume another session's in-conversation context. If it mattered, it is in a fil
 
 This workspace is a repo. So is each project inside it, and `/projects/` is
 gitignored here on purpose — **the OS does not contain your projects, it
-references them.** Each project keeps its own `README.md`, `loops.md`,
-`tasks.md` and `outline.md`, so its ledgers travel with the work.
+references them.** Each project keeps its own `README.md`, `loops.md`
+and `outline.md`, so its ledger travels with the work.
 
 A session opened on a project repo should attach this one and read it first —
 `CLAUDE.md`, `HOME.md`, `open-loops.md`, `me/learnings.md`,
@@ -109,14 +110,19 @@ the choice back is just an unanswered question sitting in a file.
   observations about **you** → `me/learnings.md` · lessons about **how Claude
   should work** → `innkeeper/learnings.md` · findings about the **world, your
   projects, your tools** → `innkeeper/notes/` · **what happened** → `journal/`.
-- **The outline/tasks boundary:** the outline is the focus, `tasks.md` is the
-  ledger. Tasks never restate outline steps. A near-empty `tasks.md` during a
-  focused phase is healthy — never manufacture tasks from steps.
-- **The loops/tasks boundary:** `tasks.md` is work you chose; `loops.md` is what
-  is waiting on **you** — things you glanced by, missed, or never resolved.
-  *A task is something you chose; a loop is something waiting on you whether you
-  chose it or not.* `loops.md` is the one file under a correctness contract, so
-  reconcile it live, never on a schedule.
+- **One list per place:** every place keeps **one** ledger, `loops.md`, holding
+  everything open there in one pass — calls waiting on **you** (things you
+  glanced by, missed, or never resolved) and work waiting on whoever picks it
+  up. It is the one file under a correctness contract, so reconcile it live,
+  never on a schedule. **Settled lines (`- [x]`) stay** — the file is the
+  archive. Headings inside it are free; they organise one pass, they do not
+  make a second list.
+- **The outline/list boundary:** `outline.md` is the **zoomed-out view** — the
+  shape of the work, three to seven numbered steps each with an honest one-line
+  `why:`. `loops.md` is the detail under it and never restates its steps. A
+  near-empty list during a focused phase is healthy — never manufacture list
+  items from steps. A step retired from the outline moves to an `## Archive`
+  heading at the foot of that file rather than being deleted.
 - Every project `README.md` opens with a **Status:** line (active / waiting /
   someday / done) and a **Next:** line. Projects with an `outline.md` point
   Next: at it rather than maintaining both.

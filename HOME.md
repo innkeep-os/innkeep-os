@@ -12,7 +12,7 @@ Nothing yet. When you start something, a line goes here.
 | | |
 |---|---|
 | [open-loops.md](open-loops.md) | what is waiting on you, across everything |
-| [tasks/tasks.md](tasks/tasks.md) | loose to-dos belonging to no project |
+| [tasks/loops.md](tasks/loops.md) | loose to-dos belonging to no project |
 | [ideas/](ideas/) | the idea shelf |
 | [notes/](notes/) | single-topic reference |
 | [journal/](journal/) | what happened, dated |
